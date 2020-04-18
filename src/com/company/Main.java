@@ -35,13 +35,13 @@ public class Main {
         }
         cat.feed();
 
-        Car samochod = new Car();
-        samochod.iloscMiejsc = 2;
-        samochod.kolor = "czerwony";
-        samochod.model = "e36";
-        samochod.producent = "bmw";
+        Car car = new Car();
+        car.seats = 2;
+        car.color = "czerwony";
+        car.model = "e36";
+        car.producent = "bmw";
 
-        me.car = samochod;
+        me.car = car;
 
     }
 }

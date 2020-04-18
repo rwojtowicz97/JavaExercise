@@ -1,8 +1,8 @@
 package com.company;
 
 public class Car {
-    String kolor;
-    Integer iloscMiejsc;
+    String color;
+    Integer seats;
     String model;
     String producent;
 }
