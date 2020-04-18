@@ -37,9 +37,9 @@ public class Main {
 
         Car samochod = new Car();
         samochod.iloscMiejsc = 2;
-        samochod.kolor = czerwony;
-        samochod.model = e36;
-        samochod.producent = bmw;
+        samochod.kolor = "czerwony";
+        samochod.model = "e36";
+        samochod.producent = "bmw";
 
         me.car = samochod;
 
