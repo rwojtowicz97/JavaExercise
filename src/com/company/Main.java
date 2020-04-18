@@ -34,5 +34,14 @@ public class Main {
             cat.takeout();
         }
         cat.feed();
+
+        Car samochod = new Car();
+        samochod.iloscMiejsc = 2;
+        samochod.kolor = czerwony;
+        samochod.model = e36;
+        samochod.producent = bmw;
+
+        me.car = samochod;
+
     }
 }
