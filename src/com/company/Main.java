@@ -35,11 +35,9 @@ public class Main {
         }
         cat.feed();
 
-        Car car = new Car();
+        Car car = new Car("e36", "bmw");
         car.seats = 2;
         car.color = "czerwony";
-        car.model = "e36";
-        car.producent = "bmw";
 
         me.car = car;
 
