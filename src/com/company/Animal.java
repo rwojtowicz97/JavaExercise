@@ -22,7 +22,21 @@ public class Animal {
     }
 
     void feed() {
-        weight += 0.1;
-        System.out.println("Thx bro, my weight is now " + weight);
+        if (weight <= 0)
+        {
+            System.out.println("Sorry, your animal is dead, you cant feed it anymore");
+        } else {
+            weight += 0.1;
+            System.out.println("Thx bro, my weight is now " + weight);
+        }
+    }
+
+    void takeout() {
+        if (weight <= 0) {
+            System.out.println("Sorry, your animal is dead, you cant take it for a walk.");
+        } else {
+            weight -= 1;
+            System.out.println("Thx for a walk, my weight is now " + weight);
+        }
     }
 }
