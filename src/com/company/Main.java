@@ -29,7 +29,7 @@ public class Main {
 
         Animal cat = new Animal("cat");
         cat.feed();
-        for (int i=10; i<14;i++)
+        for (int i=1; i<14;i++)
         {
             cat.takeout();
         }
