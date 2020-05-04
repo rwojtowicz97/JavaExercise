@@ -5,6 +5,7 @@ public class Car {
     Integer seats;
     final String model;
     final String producent;
+    double value;
 
     public Car(String model, String producent) {
         this.model = model;

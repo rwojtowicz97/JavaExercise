@@ -10,7 +10,7 @@ public class Human {
     private double salaryBeforeGet;
     Phone phone;
     Animal pet;
-    Car car;
+    private Car car;
 
 
     public Human(String firstName, String lastName, double salary) {
@@ -37,6 +37,23 @@ public class Human {
     }
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar() {
+        if(salary > car.value) {
+            System.out.println("Udało się kupić auto za gotówkę");
+            this.car = car;
+        } else if (salary > (car.value/12)) {
+            System.out.println("Udało się kupić auto na kredyt");
+            this.car = car;
+        } else {
+            System.out.println("Unlucky... get a bike");
+        }
+
     }
 
     @Override
