@@ -3,7 +3,7 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Animal dog = new Animal("Dog");
         dog.name = "Szarik";
@@ -12,9 +12,7 @@ public class Main {
 
         dog.feed();
 
-        Human me = new Human();
-        me.firstName = "Adrian";
-        me.lastName = "Nowacki";
+        Human me = new Human("Adaś", "Miauczyński", 2000d);
         me.pet = dog;
 
         me.pet.feed();
@@ -40,6 +38,9 @@ public class Main {
         car.color = "czerwony";
 
         me.car = car;
+
+        FinanceManager financeManager = new FinanceManager();
+        financeManager.paySalary(me, 200d, true);
 
     }
 }
