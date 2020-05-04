@@ -39,4 +39,13 @@ public class Animal {
             System.out.println("Thx for a walk, my weight is now " + weight);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 import java.time.LocalTime;
 
 public class Human {
