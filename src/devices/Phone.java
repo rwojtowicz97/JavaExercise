@@ -3,8 +3,8 @@ package devices;
 public class Phone extends Device {
     Double screenSize;
 
-    public Phone(String model, String producer, double screenSize) {
-        super(producer, model);
+    public Phone(String model, String producer, String yearOfProduction, double screenSize) {
+        super(producer, model, yearOfProduction);
         this.screenSize = screenSize;
     }
 

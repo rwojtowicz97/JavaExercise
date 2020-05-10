@@ -6,8 +6,8 @@ public class Car extends Device {
     Integer seats;
 
 
-    public Car(String model, String producer, double value) {
-        super(producer, model);
+    public Car(String model, String producer, String yearOfProduction, double value) {
+        super(producer, model, yearOfProduction);
         this.value = value;
     }
 

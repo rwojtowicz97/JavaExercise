@@ -5,9 +5,10 @@ public abstract class Device {
     public final String model;
     String yearOfProduction;
 
-    public Device(String producer, String model) {
+    public Device(String producer, String model, String yearOfProduction) {
         this.producer = producer;
         this.model = model;
+        this.yearOfProduction = yearOfProduction;
     }
 
     public abstract void turnOn();

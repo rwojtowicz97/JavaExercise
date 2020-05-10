@@ -19,8 +19,8 @@ public class Main {
         me.pet.name = "Myszojeleń";
 
 
-        Car car = new Car("e36", "bmw", 200d);
-        Car car1 = new Car("e36", "bmw", 200d);
+        Car car = new Car("e36", "bmw", "2001",200d);
+        Car car1 = new Car("e36", "bmw", "2001",200d);
 
 
 
@@ -28,7 +28,7 @@ public class Main {
         financeManager.paySalary(me, 200d, true);
 
 
-        Phone phone = new Phone("X213213", "XIAOMI", 4.5);
+        Phone phone = new Phone("X213213", "XIAOMI", "2007",4.5);
 
         System.out.println(car.equals(car1));
 
