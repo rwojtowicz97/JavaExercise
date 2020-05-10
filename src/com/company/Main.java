@@ -2,6 +2,7 @@
 package com.company;
 
 import devices.Car;
+import devices.Phone;
 
 public class Main {
 
@@ -27,10 +28,17 @@ public class Main {
         financeManager.paySalary(me, 200d, true);
 
 
+        Phone phone = new Phone("X213213", "XIAOMI", 4.5);
+
         System.out.println(car.equals(car1));
 
         System.out.println(me);
         System.out.println(dog);
         System.out.println(car);
+        System.out.println(phone);
+
+
+        car.turnOn();
+        phone.turnOn();
     }
 }

@@ -1,16 +1,13 @@
 package devices;
 
-public class Car {
+public class Car extends Device {
     public double value;
     String color;
     Integer seats;
-    final String model;
-    final String producent;
 
 
-    public Car(String model, String producent, double value) {
-        this.model = model;
-        this.producent = producent;
+    public Car(String model, String producer, double value) {
+        super(producer, model);
         this.value = value;
     }
 
@@ -20,15 +17,11 @@ public class Car {
         if (o == null || getClass() != o.getClass()) return false;
         Car simpson = (Car) o;
         return model == simpson.model &&
-                producent.equals(simpson.producent);
+                producer.equals(simpson.producer);
     }
 
     @Override
-    public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", producent='" + producent + '\'' +
-                ", value=" + value +
-                '}';
+    public void turnOn() {
+        System.out.println("turn on Car");
     }
 }
