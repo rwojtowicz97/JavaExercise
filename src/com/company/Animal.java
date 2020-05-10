@@ -3,7 +3,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements salleable {
     final String species;
     String name;
     File pic;
@@ -20,6 +20,7 @@ public class Animal {
         }
 
     }
+
 
     void feed() {
         if (weight <= 0)
@@ -40,6 +41,8 @@ public class Animal {
         }
     }
 
+
+
     @Override
     public String toString() {
         return "Animal{" +
@@ -47,5 +50,16 @@ public class Animal {
                 ", species='" + species + '\'' +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, double price) {
+            if(seller.cash >= price){
+                buyer.cash -= price;
+                buyer.pet = seller.pet;
+                seller.pet = null;
+                seller.cash += price;
+                System.out.println("Transaction success.");
+            } else { System.out.println("Not enough money."); }
     }
 }

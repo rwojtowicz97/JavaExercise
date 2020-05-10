@@ -1,6 +1,8 @@
-package devices;
+package com.company.devices;
 
-public abstract class Device {
+import com.company.salleable;
+
+public abstract class Device implements salleable {
     public final String producer;
     public final String model;
     String yearOfProduction;
@@ -13,8 +15,10 @@ public abstract class Device {
 
     public abstract void turnOn();
 
+
     @Override
     public String toString() {
         return "Device: " + getClass().getName() +" Model: " + model + " Producer: " + producer +" Year of production: " + yearOfProduction;
     }
+
 }

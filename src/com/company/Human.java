@@ -1,7 +1,7 @@
 package com.company;
 
-import devices.Car;
-import devices.Phone;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.time.LocalTime;
 
@@ -11,7 +11,8 @@ public class Human {
     private double salary;
     private LocalTime lastCheck;
     private double salaryBeforeGet;
-    Phone phone;
+    public double cash;
+    public Phone phone;
     Animal pet;
     private Car car;
 
@@ -46,19 +47,22 @@ public class Human {
         return car;
     }
 
-    public void setCar() {
-        if(salary > car.value) {
+    public void setCar(Car car) {
+        if(salary > this.car.value) {
             System.out.println("Udało się kupić auto za gotówkę");
-            this.car = car;
-        } else if (salary > (car.value/12)) {
+            this.car = this.car;
+        } else if (salary > (this.car.value/12)) {
             System.out.println("Udało się kupić auto na kredyt");
-            this.car = car;
+            this.car = this.car;
         } else {
             System.out.println("Unlucky... get a bike");
         }
 
     }
 
+    public void sell() throws Exception {
+        throw new Exception("You cant buy a human");
+    }
     @Override
     public String toString() {
         return "Human{" +
