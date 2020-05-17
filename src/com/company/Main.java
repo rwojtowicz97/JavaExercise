@@ -4,6 +4,7 @@ package com.company;
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.LPG;
 import com.company.devices.Phone;
 
 public class Main {
@@ -24,8 +25,8 @@ public class Main {
         Human me2 = new Human("Czesław", "Kret", 2000d);
         me2.cash = 200d;
 
-        Car car = new Car("e36", "bmw", "2001",200d);
-        Car car1 = new Car("e36", "bmw", "2001",200d);
+        LPG car = new LPG("e36", "bmw", "2001",200d);
+        LPG car1 = new LPG("e36", "bmw", "2001",200d);
 
 
 
