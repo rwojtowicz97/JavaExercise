@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -13,7 +14,7 @@ public class Human {
     private double salaryBeforeGet;
     public double cash;
     public Phone phone;
-    Animal pet;
+    public Animal pet;
     private Car car;
 
 

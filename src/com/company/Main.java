@@ -1,6 +1,8 @@
 
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -8,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        Animal dog = new Animal("Dog");
+        Pet dog = new Pet("Dog");
         dog.name = "Szarik";
 
         Human me = new Human("Adaś", "Miauczyński", 2000d);
@@ -16,7 +18,7 @@ public class Main {
         me.cash = 200d;
 
 
-        me.pet = new Animal("Dog");
+        me.pet = new Pet("Dog");
         me.pet.name = "Myszojeleń";
 
         Human me2 = new Human("Czesław", "Kret", 2000d);
@@ -51,10 +53,11 @@ public class Main {
         System.out.println("seller cash: " + me.cash);
         System.out.println("buyer cash: " + me2.cash);
 
-        System.out.println("Buyer pet: " + me2.pet.toString());
-
         phone.sell(me, me2, 50);
         car.sell(me2, me, 100);
+
+        dog.feed(20.5);
+        dog.feed();
 
     }
 }

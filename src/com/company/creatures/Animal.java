@@ -1,11 +1,14 @@
 
-package com.company;
+package com.company.creatures;
+
+import com.company.Human;
+import com.company.Salleable;
 
 import java.io.File;
 
-public class Animal implements salleable {
+public abstract class Animal implements Salleable, Feedable {
     final String species;
-    String name;
+    public String name;
     File pic;
     private Double weight;
 
@@ -21,8 +24,19 @@ public class Animal implements salleable {
 
     }
 
+    @Override
+    public void feed(double foodWeight) {
+        if (weight <= 0)
+        {
+            System.out.println("Sorry, your animal is dead, you cant feed it anymore");
+        } else {
+            weight += foodWeight;
+            System.out.println("Thx bro, my weight is now " + weight);
+        }
+    }
 
-    void feed() {
+    @Override
+    public void feed() {
         if (weight <= 0)
         {
             System.out.println("Sorry, your animal is dead, you cant feed it anymore");
@@ -54,12 +68,18 @@ public class Animal implements salleable {
 
     @Override
     public void sell(Human seller, Human buyer, double price) {
-            if(seller.cash >= price){
+        if (seller.pet == this) {
+            if (seller.cash >= price) {
                 buyer.cash -= price;
                 buyer.pet = seller.pet;
                 seller.pet = null;
                 seller.cash += price;
                 System.out.println("Transaction success.");
-            } else { System.out.println("Not enough money."); }
+            } else {
+                System.out.println("Not enough money.");
+            }
+        } else {
+            System.out.println("Seller doesnt have this pet");
+        }
     }
 }
