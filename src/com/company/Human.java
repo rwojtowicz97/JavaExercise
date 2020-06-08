@@ -2,9 +2,11 @@ package com.company;
 
 import com.company.creatures.Animal;
 import com.company.devices.Car;
+import com.company.devices.LPG;
 import com.company.devices.Phone;
-
 import java.time.LocalTime;
+import java.util.*;
+
 
 public class Human {
     private String firstName;
@@ -15,13 +17,22 @@ public class Human {
     public double cash;
     public Phone phone;
     public Animal pet;
-    private Car car;
-
+    public ArrayList<Car> garage;
 
     public Human(String firstName, String lastName, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
+        this.garage = new ArrayList<Car>(4);
+        this.garage.add(new LPG("JD","test","2010", 500d));
+        this.garage.add(new LPG("PP","test","2018", 400d));
+    }
+
+    public Human(String firstName, String lastName, double salary, int garageSize) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        Car[] garage = new Car[garageSize];
     }
 
     public String getFirstName() {
@@ -30,7 +41,7 @@ public class Human {
     public String getLastName() {
         return  lastName;
     }
-    public void setLastName() {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -44,22 +55,32 @@ public class Human {
         this.salary = salary;
     }
 
-    public Car getCar() {
-        return car;
+    public Car getCar(int parkingSpace) {
+        return garage.get(parkingSpace);
     }
 
-    public void setCar(Car car) {
-        if(salary > this.car.value) {
-            System.out.println("Udało się kupić auto za gotówkę");
-            this.car = this.car;
-        } else if (salary > (this.car.value/12)) {
-            System.out.println("Udało się kupić auto na kredyt");
-            this.car = this.car;
-        } else {
-            System.out.println("Unlucky... get a bike");
+    public void setCar(Car car, int parkingSpace) {
+        this.garage.set(parkingSpace, car);
+    }
+
+    public void CarsValue() {
+        double sum = 0;
+        for (Car car : this.garage) {
+            sum += car.value;
         }
-
+        System.out.println("Cars value = " + sum);
     }
+
+    public void SortCarsByYearOfProduction() {
+        Collections.sort(garage, compareByYear);
+    }
+
+    Comparator<Car> compareByYear = new Comparator<Car>() {
+        @Override
+        public int compare(Car car, Car t1) {
+            return car.getYearOfProduction().compareTo(t1.getYearOfProduction());
+        }
+    };
 
     public void sell() throws Exception {
         throw new Exception("You cant buy a human");
