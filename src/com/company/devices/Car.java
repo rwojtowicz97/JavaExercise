@@ -2,19 +2,33 @@ package com.company.devices;
 
 import com.company.Human;
 
+import java.util.ArrayList;
+
 public abstract class Car extends Device {
     public double value;
     String color;
     Integer seats;
+    public ArrayList<Human> carOwners;
 
 
     public Car(String model, String producer, String yearOfProduction, double value) {
         super(producer, model, yearOfProduction);
         this.value = value;
+        this.carOwners = new ArrayList<Human>();
     }
 
     abstract void refuel();
 
+    public void CheckOwner(Human human)
+    {
+        if(carOwners.contains(human))
+        {
+            System.out.println(human.getFirstName() + "was an owner of this car");
+        }
+        else {
+            System.out.println(human.getFirstName() + "was not an owner of this car");
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -33,7 +47,8 @@ public abstract class Car extends Device {
     @Override
     public void sell(Human seller, Human buyer, double price) throws Exception {
         for (int i = 0; i <= seller.garage.length-1; i++) {
-            if (seller.garage[i].equals(this)) {
+            if (seller.garage[i].equals(this) &&
+                    seller.garage[i].carOwners.get(carOwners.size() -1) == seller) {
                 Car tempcar = seller.garage[i];
                 for (int j = buyer.garage.length - 1; j >= 0; j--) {
                     if (buyer.garage[j] == null) {
@@ -43,6 +58,7 @@ public abstract class Car extends Device {
                             buyer.cash -= price;
                             seller.cash += price;
                             System.out.println("Transaction Success.");
+                            tempcar.carOwners.add(buyer);
                             return;
                         }
                     }

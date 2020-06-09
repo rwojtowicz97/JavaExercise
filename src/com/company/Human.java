@@ -26,6 +26,8 @@ public class Human {
         this.garage = new Car[4];
         this.garage[0] = new LPG("JD","test","2019", 500d);
         this.garage[1] = new LPG("PP","test","2018", 400d);
+        this.garage[0].carOwners.add(this);
+        this.garage[1].carOwners.add(this);
     }
 
     public Human(String firstName, String lastName, double salary, int garageSize) {
