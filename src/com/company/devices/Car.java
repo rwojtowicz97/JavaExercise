@@ -32,63 +32,25 @@ public abstract class Car extends Device {
 
     @Override
     public void sell(Human seller, Human buyer, double price) throws Exception {
-//        if(seller.getCar() == this){
-//            if(seller.cash >= price){
-//                buyer.cash -= price;
-//                buyer.setCar(this);
-//                seller.setCar(null);
-//                seller.cash += price;
-//                System.out.println("Transaction success.");
-//            } else { System.out.println("Not enough money."); }
-//        } else {
-//            System.out.println("Seller doesnt have this car");
-//        }
-//        System.out.println("test1");
-//        for (int i = seller.garage.size() - 1; i >= 0; i--) {
-//            System.out.println("test2");
-//            if (seller.getCar(i).equals(this)) {
-//                for (int j = buyer.garage.size() - 1; j <= 0; j--) {
-//                    if (buyer.garage.get(j) == null) {
-//                        if (buyer.cash >= price) {
-//                            Car tempcar = seller.getCar(i);
-//                            seller.garage.remove(tempcar);
-//                            buyer.garage.add(tempcar);
-//                            buyer.cash -= price;
-//                            seller.cash += price;
-//                            System.out.println("Transaction Success.");
-//                        }
-//                    } else {
-//                        throw new Exception("Buyers garage is full");
-//                    }
-//                }
-//            } else {
-//                throw new Exception("Seller doesn't have this car");
-//            }
-//        }
-        System.out.println("test1");
-        for (Car car : seller.garage ) {
-            System.out.println("test2");
-            System.out.println(car);
-            System.out.println(this);
-            System.out.println(car.equals(this));
-            if (car.equals(this)) {
-                for (int j = buyer.garage.size() - 1; j <= 0; j--) {
-                    if (buyer.garage.get(j) == null) {
+        for (int i = 0; i <= seller.garage.length-1; i++) {
+            if (seller.garage[i].equals(this)) {
+                Car tempcar = seller.garage[i];
+                for (int j = buyer.garage.length - 1; j >= 0; j--) {
+                    if (buyer.garage[j] == null) {
                         if (buyer.cash >= price) {
-                            Car tempcar = car;
-                            seller.garage.remove(car);
-                            buyer.garage.add(tempcar);
+                            seller.garage[i] = null;
+                            buyer.garage[j] = tempcar;
                             buyer.cash -= price;
                             seller.cash += price;
                             System.out.println("Transaction Success.");
+                            return;
                         }
-                    } else {
-                        throw new Exception("Buyers garage is full");
                     }
                 }
-            } else {
-                throw new Exception("Seller doesn't have this car");
+                throw new Exception("Buyers garage is full");
             }
         }
+        throw new Exception("Seller doesn't have this car");
+        }
     }
-}
+

@@ -1,12 +1,6 @@
 
 package com.company;
 
-import com.company.creatures.Animal;
-import com.company.creatures.Pet;
-import com.company.devices.Car;
-import com.company.devices.LPG;
-import com.company.devices.Phone;
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -17,15 +11,23 @@ public class Main {
         Human me2 = new Human("Czesław", "Kret", 2000d);
         me2.cash = 200d;
 
-        me.CarsValue();
+
+        me.PrintAllCars();
+
+        me.SortCarsByYearOfProduction();
+
+        me.PrintAllCars();
 
         me.getCar(0).sell(me,me2, 200d);
 
-        System.out.println(me.garage.size());
-        me.CarsValue();
-        System.out.println(me.garage.get(0));
-        System.out.println(me.garage.get(1));
-        System.out.println(me.garage.get(1).equals(me.garage.get(1)));
+        System.out.println("me cars:");
+        me.PrintAllCars();
+        System.out.println("me2 cars:");
+        me2.PrintAllCars();
+
+        me2.SortCarsByYearOfProduction();
+        System.out.println("me2 cars:");
+        me2.PrintAllCars();
 
 
     }
