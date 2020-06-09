@@ -20,14 +20,17 @@ public class Main {
 
         me.getCar(0).sell(me,me2, 200d);
 
+        me2.PrintAllCars();
+        System.out.println(me2.getCar(1));
+        me2.getCar(3).CountTransactions();
         System.out.println("me cars:");
         me.PrintAllCars();
         System.out.println("me2 cars:");
         me2.PrintAllCars();
-
-        me2.SortCarsByYearOfProduction();
         System.out.println("me2 cars:");
+
         me2.PrintAllCars();
+        me2.getCar(3).TransactionHistory(me2, me);
 
 
     }

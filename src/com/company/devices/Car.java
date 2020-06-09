@@ -30,6 +30,25 @@ public abstract class Car extends Device {
         }
     }
 
+    public void TransactionHistory(Human owner, Human lastOwner)
+    {
+        int checkvalue = this.carOwners.indexOf(owner);
+        if (this.carOwners.get(checkvalue-1) == lastOwner)
+        {
+            System.out.println(owner.getFirstName() + " bought this car from " + lastOwner.getFirstName());
+        }
+        else
+        {
+            System.out.println(owner.getFirstName() + " bought this car from somebody else");
+
+        }
+    }
+
+    public void CountTransactions()
+    {
+        System.out.println("Transaction made:" + this.carOwners.size());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
